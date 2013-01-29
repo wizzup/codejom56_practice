@@ -5,7 +5,6 @@ main = interact $ f
 
 f = unlines . map g . chunksOf 2 . tail . lines
 
--- g (a:b:[]) = res $ h (x, y)
 g (a:b:[]) = i $ h (x, y)
   where x = read a :: Int
         y = map (\x -> read x::Int) $ words b 
@@ -15,9 +14,7 @@ h (x,y) = (y,rr,cc)
         l = take 2 $ repeat (head y)
         rr = filter (\x -> length x == 2) (l:r)
         cc = map isCold rr
-        -- cc = map isCold rr
 
--- i (a,b,c) = show (a,b,c)
 i (a,b,c) = show $ sum $ map cc c
   where cc x = if x then 1 else 0
 
